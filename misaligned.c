@@ -22,8 +22,8 @@ int main() {
     int result = printColorMap();
     fflush(stdout);
     assert(strcmp(buffer,expected_colors) == 1);
-    printf("buffer: %s\n",buffer);
-    printf("exp_val %s\n",expected_colors);
+    fflush("buffer: %s\n",buffer);
+    fflush("exp_val %s\n",expected_colors);
     assert(result == 25);
     
     printf("All is well (maybe!)\n");
