@@ -2,7 +2,7 @@
 #include <assert.h>
 
 int alertFailureCount = 0;
-int (*networkAlertStubFunc)(float) = networkAlertStub;
+
 
 int networkAlertStub(float celcius) {
     printf("ALERT: Temperature is %.1f celcius.\n", celcius);
@@ -11,6 +11,8 @@ int networkAlertStub(float celcius) {
     // stub always succeeds and returns 200
     return 200;
 }
+
+int (*networkAlertStubFunc)(float) = networkAlertStub;
 
 void alertInCelcius(float farenheit) {
     float celcius = (farenheit - 32) * 5 / 9;
