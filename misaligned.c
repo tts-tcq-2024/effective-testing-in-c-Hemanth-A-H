@@ -17,7 +17,7 @@ int printColorMap() {
 int main() {
     char buffer[100];
     setvbuf(stdout,buffer,_IOFBF,sizeof(buffer));
-    const char *expected_colors = "0 | white | Blue\n";
+    const char *expected_colors = "1 | White | Orange\n";
 
     int result = printColorMap();
     fflush(stdout);
