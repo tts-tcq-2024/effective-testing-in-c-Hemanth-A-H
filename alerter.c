@@ -2,6 +2,11 @@
 #include <assert.h>
 
 int alertFailureCount = 0;
+int (*networkAlertStubFunc)(float) = networkAlertStub;
+
+int networkAlertStub_mock(float celcius) {
+return 500;
+}
 
 int networkAlertStub(float celcius) {
     printf("ALERT: Temperature is %.1f celcius.\n", celcius);
@@ -27,6 +32,9 @@ int main() {
     alertInCelcius(400.5);
     alertInCelcius(303.6);
     printf("%d alerts failed.\n", alertFailureCount);
+    networkAlertStubFunc = networkAlertStub_mock;
+    alertInCelcius(303.6);
+    assert(alertFailureCount == 1);
     printf("All is well (maybe!)\n");
     return 0;
 }
