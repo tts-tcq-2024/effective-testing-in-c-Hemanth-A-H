@@ -1,4 +1,4 @@
-#include <stdio.h>
+o#include <stdio.h>
 #include <assert.h>
 #include <string.h>
 
@@ -22,6 +22,8 @@ int main() {
     int result = printColorMap();
     fflush(stdout);
     assert(strcmp(buffer,expected_colors) == 1);
+    printf("buffer: %s\n",buffer);
+    printf("exp_val %s\n",expected_colors);
     assert(result == 25);
     
     printf("All is well (maybe!)\n");
